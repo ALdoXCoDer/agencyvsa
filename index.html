@@ -2,215 +2,311 @@
 <html lang="en">
 <head>
 
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>VISA ELITE | DS-160 AI SYSTEM</title>
+<title>VISA ELITE | Premium DS-160 Agency</title>
 
 <script src="https://cdn.tailwindcss.com"></script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
 <style>
 
 *{
-  margin:0;
-  padding:0;
-  box-sizing:border-box;
+margin:0;
+padding:0;
+box-sizing:border-box;
 }
 
 body{
-  font-family:Arial, sans-serif;
-  background:#020617;
-  color:white;
-  overflow-x:hidden;
+font-family:'Poppins',sans-serif;
+background:#020617;
+overflow-x:hidden;
+color:white;
 }
 
 /* BACKGROUND */
-.hero-bg{
-  position:fixed;
-  inset:0;
 
-  background-image:
-  linear-gradient(
-    to bottom right,
-    rgba(2,6,23,0.95),
-    rgba(0,0,0,0.92),
-    rgba(30,64,175,0.78)
-  ),
-  url('https://images.unsplash.com/photo-1617581629397-a72507c3de9e?q=80&w=2070');
+.bg-main{
+position:fixed;
+inset:0;
 
-  background-size:cover;
-  background-position:center;
-  background-attachment:fixed;
+background-image:
+linear-gradient(
+to bottom right,
+rgba(2,6,23,0.92),
+rgba(2,6,23,0.88),
+rgba(30,64,175,0.75)
+),
+url('https://images.unsplash.com/photo-1521295121783-8a321d551ad2?q=80&w=2070');
 
-  z-index:-5;
-}
+background-size:cover;
+background-position:center;
+background-attachment:fixed;
 
-/* PARTICLES */
-.particles{
-  position:fixed;
-  inset:0;
-  overflow:hidden;
-  z-index:-4;
-}
-
-.particle{
-  position:absolute;
-  background:white;
-  border-radius:50%;
-  opacity:0.2;
-  animation:floatParticle linear infinite;
-}
-
-@keyframes floatParticle{
-  from{
-    transform:translateY(100vh);
-  }
-  to{
-    transform:translateY(-100vh);
-  }
+z-index:-10;
 }
 
 /* GLOW */
+
 .glow1{
-  position:fixed;
-  top:-200px;
-  left:-200px;
-
-  width:600px;
-  height:600px;
-
-  background:#2563eb;
-
-  border-radius:50%;
-
-  filter:blur(160px);
-
-  opacity:0.22;
-
-  z-index:-3;
-
-  animation:moveGlow1 10s infinite alternate ease-in-out;
+position:fixed;
+width:500px;
+height:500px;
+background:#2563eb;
+border-radius:50%;
+filter:blur(140px);
+opacity:0.22;
+top:-180px;
+left:-150px;
+animation:moveGlow1 10s infinite alternate;
+z-index:-9;
 }
 
 .glow2{
-  position:fixed;
-  bottom:-200px;
-  right:-200px;
-
-  width:600px;
-  height:600px;
-
-  background:#60a5fa;
-
-  border-radius:50%;
-
-  filter:blur(170px);
-
-  opacity:0.18;
-
-  z-index:-3;
-
-  animation:moveGlow2 12s infinite alternate ease-in-out;
+position:fixed;
+width:500px;
+height:500px;
+background:#60a5fa;
+border-radius:50%;
+filter:blur(160px);
+opacity:0.18;
+bottom:-200px;
+right:-150px;
+animation:moveGlow2 12s infinite alternate;
+z-index:-9;
 }
 
 @keyframes moveGlow1{
-  from{
-    transform:translate(0,0);
-  }
-  to{
-    transform:translate(120px,80px);
-  }
+from{
+transform:translate(0,0);
+}
+to{
+transform:translate(100px,80px);
+}
 }
 
 @keyframes moveGlow2{
-  from{
-    transform:translate(0,0);
-  }
-  to{
-    transform:translate(-120px,-90px);
-  }
+from{
+transform:translate(0,0);
+}
+to{
+transform:translate(-100px,-80px);
+}
+}
+
+/* PARTICLES */
+
+.particles{
+position:fixed;
+inset:0;
+overflow:hidden;
+z-index:-8;
+}
+
+.particle{
+position:absolute;
+background:white;
+border-radius:50%;
+opacity:0.15;
+animation:floatParticle linear infinite;
+}
+
+@keyframes floatParticle{
+from{
+transform:translateY(100vh);
+}
+to{
+transform:translateY(-100vh);
+}
 }
 
 /* GLASS */
+
 .glass{
-  background:rgba(255,255,255,0.05);
-
-  backdrop-filter:blur(18px);
-
-  border:1px solid rgba(255,255,255,0.08);
-
-  box-shadow:0 0 40px rgba(59,130,246,0.15);
+background:rgba(255,255,255,0.06);
+backdrop-filter:blur(20px);
+border:1px solid rgba(255,255,255,0.08);
+box-shadow:0 0 40px rgba(59,130,246,0.14);
 }
 
-/* INPUT */
-.input{
-  width:100%;
+/* NAVBAR */
 
-  padding:18px;
-
-  border-radius:18px;
-
-  background:rgba(255,255,255,0.04);
-
-  border:1px solid rgba(255,255,255,0.08);
-
-  outline:none;
-
-  color:white;
-
-  transition:0.3s;
+.navbar{
+position:sticky;
+top:0;
+z-index:100;
+padding:22px 50px;
+display:flex;
+justify-content:space-between;
+align-items:center;
 }
 
-.input:focus{
-  border:1px solid #60a5fa;
-  box-shadow:0 0 20px rgba(96,165,250,0.3);
+/* LOGO */
+
+.logo{
+font-size:32px;
+font-weight:800;
+letter-spacing:6px;
+
+text-shadow:
+0 0 15px rgba(96,165,250,0.7),
+0 0 30px rgba(59,130,246,0.4);
 }
 
-.input::placeholder{
-  color:#cbd5e1;
+/* HERO */
+
+.hero{
+padding:120px 20px 90px;
+text-align:center;
 }
 
-select{
-  appearance:none;
+.hero h1{
+font-size:82px;
+font-weight:800;
+line-height:1.1;
+
+text-shadow:
+0 0 20px rgba(96,165,250,0.8),
+0 0 40px rgba(59,130,246,0.4);
 }
 
-/* BUTTON */
-.btn-main{
-  background:linear-gradient(
-    to right,
-    #2563eb,
-    #3b82f6
-  );
-
-  transition:0.4s;
+.hero p{
+max-width:900px;
+margin:auto;
+margin-top:30px;
+font-size:20px;
+line-height:1.8;
+color:#dbeafe;
 }
 
-.btn-main:hover{
-  transform:translateY(-4px);
+/* CONTAINER */
 
-  box-shadow:0 0 30px rgba(59,130,246,0.55);
+.container-main{
+max-width:1400px;
+margin:auto;
+padding:30px;
 }
 
-/* TEXT GLOW */
-.text-glow{
-  text-shadow:
-  0 0 15px rgba(96,165,250,0.8),
-  0 0 30px rgba(59,130,246,0.4);
+/* FORM BOX */
+
+.form-box{
+padding:45px;
+border-radius:35px;
 }
 
 /* SECTION */
-.section-box{
-  padding:35px;
-  border-radius:35px;
-  margin-bottom:40px;
+
+.section{
+padding:35px;
+border-radius:30px;
+margin-bottom:35px;
 }
 
-/* LABEL */
-.label{
-  font-size:14px;
-  color:#93c5fd;
-  letter-spacing:5px;
-  text-transform:uppercase;
+/* SECTION TITLE */
+
+.section-title{
+font-size:30px;
+font-weight:700;
+margin-bottom:30px;
+color:#93c5fd;
+}
+
+/* GRID */
+
+.grid-2{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+gap:20px;
+}
+
+/* INPUT */
+
+.input{
+width:100%;
+padding:18px;
+border-radius:18px;
+background:rgba(255,255,255,0.04);
+border:1px solid rgba(255,255,255,0.08);
+outline:none;
+color:white;
+font-size:15px;
+transition:0.3s;
+}
+
+.input:focus{
+border:1px solid #60a5fa;
+box-shadow:0 0 20px rgba(96,165,250,0.35);
+}
+
+.input::placeholder{
+color:#cbd5e1;
+}
+
+textarea{
+min-height:130px;
+resize:none;
+}
+
+/* BUTTON */
+
+.btn{
+width:100%;
+padding:22px;
+border:none;
+border-radius:22px;
+font-size:20px;
+font-weight:700;
+cursor:pointer;
+transition:0.35s;
+
+background:linear-gradient(
+to right,
+#2563eb,
+#3b82f6
+);
+
+color:white;
+}
+
+.btn:hover{
+transform:translateY(-5px);
+
+box-shadow:
+0 0 20px rgba(59,130,246,0.5),
+0 0 50px rgba(59,130,246,0.3);
+}
+
+/* FOOTER */
+
+.footer{
+padding:50px 20px;
+text-align:center;
+color:#cbd5e1;
+}
+
+/* MOBILE */
+
+@media(max-width:768px){
+
+.hero h1{
+font-size:52px;
+}
+
+.navbar{
+padding:20px;
+}
+
+.form-box{
+padding:20px;
+}
+
+.section{
+padding:22px;
+}
+
 }
 
 </style>
@@ -220,100 +316,77 @@ select{
 <body>
 
 <!-- BACKGROUND -->
-<div class="hero-bg"></div>
-
-<!-- PARTICLES -->
-<div class="particles" id="particles"></div>
+<div class="bg-main"></div>
 
 <!-- GLOW -->
 <div class="glow1"></div>
 <div class="glow2"></div>
 
+<!-- PARTICLES -->
+<div class="particles" id="particles"></div>
+
 <!-- NAVBAR -->
-<nav class="glass sticky top-0 z-50 px-8 py-5 flex justify-between items-center">
+<nav class="navbar glass">
 
-  <div>
+<div>
 
-    <h1 class="text-3xl font-black tracking-[6px] text-glow">
-      VISA ELITE
-    </h1>
+<div class="logo">
+VISA ELITE
+</div>
 
-    <p class="text-blue-300 text-sm mt-1">
-      AI Powered DS-160 Agency
-    </p>
+<p class="text-blue-300 text-sm mt-1">
+AI Powered DS-160 Agency
+</p>
 
-  </div>
+</div>
 
-  <button class="btn-main px-7 py-3 rounded-full font-bold">
-    Apply Now
-  </button>
+<a href="#apply">
+
+<button class="btn px-8 py-3 !w-auto">
+Apply Now
+</button>
+
+</a>
 
 </nav>
 
 <!-- HERO -->
-<section class="text-center px-6 pt-28 pb-24">
+<section class="hero">
 
-  <p class="label">
-    Premium USA Visa Assistance
-  </p>
+<p class="uppercase tracking-[7px] text-blue-300 text-sm">
+Luxury USA Visa Assistance
+</p>
 
-  <h1 class="text-6xl md:text-8xl font-black leading-tight mt-8 text-glow">
+<h1 class="mt-8">
+Elite USA Visa System
+</h1>
 
-    Elite USA
-    <span class="text-blue-400">
-      Visa
-    </span>
-
-    System
-
-  </h1>
-
-  <p class="mt-8 text-zinc-300 text-lg max-w-3xl mx-auto leading-relaxed">
-
-    AI-powered DS-160 automation platform with premium consultation,
-    intelligent questionnaire processing, and luxury visa assistance.
-
-  </p>
+<p>
+Professional AI-powered DS-160 automation service with premium consultation,
+fast processing, and luxury visa assistance experience.
+</p>
 
 </section>
 
 <!-- FORM -->
-<section class="px-6 pb-32">
+<section class="container-main" id="apply">
 
-<div class="max-w-7xl mx-auto glass rounded-[45px] p-8 md:p-14">
+<div class="glass form-box">
 
-<div class="text-center mb-16">
-
-  <p class="label">
-    Smart AI Questionnaire
-  </p>
-
-  <h2 class="text-5xl md:text-6xl font-black mt-6 text-glow">
-    Complete DS-160 Form
-  </h2>
-
-  <p class="mt-6 text-zinc-300 max-w-3xl mx-auto leading-relaxed">
-    Fill in all information below and our AI system will prepare your DS-160 professionally.
-  </p>
-
-</div>
-
-<form 
+<form
 action="https://formspree.io/f/xzdwvnnq"
 method="POST"
-class="grid gap-10"
+id="visaForm"
 >
 
-<input type="hidden" name="_subject" value="New DS160 Client Submission">
-
 <!-- PERSONAL -->
-<div class="glass section-box">
+<div class="glass section">
 
-<h3 class="text-3xl font-bold text-blue-300 mb-8">
+<h2 class="section-title">
 Personal Information
-</h3>
+</h2>
 
-<div class="grid md:grid-cols-2 gap-6">
+<div class="grid-2">
 
 <input type="text" name="full_name" placeholder="Full Name" class="input">
 
@@ -321,9 +394,7 @@ Personal Information
 
 <input type="text" name="nik" placeholder="National ID / NIK" class="input">
 
-<input type="text" name="passport_number" placeholder="Passport Number" class="input">
-
-<input type="text" name="nationality" placeholder="Nationality" class="input">
+<input type="text" name="passport" placeholder="Passport Number" class="input">
 
 <input type="text" name="birth_place" placeholder="Place of Birth" class="input">
 
@@ -343,59 +414,30 @@ Personal Information
 <option>Widowed</option>
 </select>
 
-<input type="text" name="phone_number" placeholder="Phone Number" class="input">
+<input type="text" name="phone" placeholder="Phone Number" class="input">
 
-<input type="email" name="email" placeholder="Email Address" class="input md:col-span-2">
+<input type="email" name="email" placeholder="Email Address" class="input">
 
-<textarea name="home_address" placeholder="Full Home Address" class="input md:col-span-2 h-32"></textarea>
-
-</div>
-
-</div>
-
-<!-- SOCIAL -->
-<div class="glass section-box">
-
-<h3 class="text-3xl font-bold text-blue-300 mb-8">
-Social Media
-</h3>
-
-<div class="grid md:grid-cols-2 gap-6">
-
-<input type="text" name="facebook" placeholder="Facebook Username" class="input">
-
-<input type="text" name="instagram" placeholder="Instagram Username" class="input">
-
-<input type="text" name="tiktok" placeholder="TikTok Username" class="input">
-
-<input type="text" name="twitter" placeholder="Twitter / X Username" class="input">
+<textarea name="address" placeholder="Full Home Address" class="input"></textarea>
 
 </div>
 
 </div>
 
 <!-- FAMILY -->
-<div class="glass section-box">
+<div class="glass section">
 
-<h3 class="text-3xl font-bold text-blue-300 mb-8">
+<h2 class="section-title">
 Family Information
-</h3>
+</h2>
 
-<div class="grid md:grid-cols-2 gap-6">
+<div class="grid-2">
 
 <input type="text" name="father_name" placeholder="Father Full Name" class="input">
 
-<input type="date" name="father_birth" class="input">
-
 <input type="text" name="mother_name" placeholder="Mother Full Name" class="input">
 
-<input type="date" name="mother_birth" class="input">
-
 <input type="text" name="spouse_name" placeholder="Spouse Full Name" class="input">
-
-<input type="text" name="spouse_birth_place" placeholder="Spouse Place of Birth" class="input">
-
-<input type="date" name="spouse_birth_date" class="input">
 
 <input type="date" name="marriage_date" class="input">
 
@@ -403,216 +445,82 @@ Family Information
 
 </div>
 
-<!-- US TRIP -->
-<div class="glass section-box">
+<!-- WORK -->
+<div class="glass section">
 
-<h3 class="text-3xl font-bold text-blue-300 mb-8">
-U.S. Trip Information
-</h3>
-
-<div class="grid md:grid-cols-2 gap-6">
-
-<input type="text" name="trip_purpose" placeholder="Purpose of Trip" class="input">
-
-<input type="text" name="arrival_date" placeholder="Arrival Date" class="input">
-
-<input type="text" name="stay_length" placeholder="Length of Stay" class="input">
-
-<input type="text" name="us_contact" placeholder="U.S Contact Person" class="input">
-
-<textarea name="us_address" placeholder="Address in the U.S." class="input md:col-span-2 h-32"></textarea>
-
-</div>
-
-</div>
-
-<!-- EMPLOYMENT -->
-<div class="glass section-box">
-
-<h3 class="text-3xl font-bold text-blue-300 mb-8">
+<h2 class="section-title">
 Employment Information
-</h3>
+</h2>
 
-<div class="grid md:grid-cols-2 gap-6">
+<div class="grid-2">
 
 <input type="text" name="occupation" placeholder="Primary Occupation" class="input">
 
 <input type="text" name="company_name" placeholder="Company Name" class="input">
 
-<input type="text" name="company_address" placeholder="Company Address" class="input">
-
-<input type="text" name="office_phone" placeholder="Office Phone Number" class="input">
-
 <input type="text" name="salary" placeholder="Monthly Salary" class="input">
 
-<input type="text" name="employment_start" placeholder="Employment Start Year" class="input">
+<input type="text" name="work_start" placeholder="Employment Start Year" class="input">
 
-<textarea name="duties" placeholder="Briefly Describe Your Duties" class="input md:col-span-2 h-40"></textarea>
+<textarea name="duties" placeholder="Briefly Describe Your Duties" class="input"></textarea>
 
 </div>
 
 </div>
 
 <!-- EDUCATION -->
-<div class="glass section-box">
+<div class="glass section">
 
-<h3 class="text-3xl font-bold text-blue-300 mb-8">
+<h2 class="section-title">
 Education Information
-</h3>
+</h2>
 
-<div class="grid gap-8">
+<div class="grid-2">
 
-<!-- SMP -->
-<div class="glass p-8 rounded-3xl">
+<input type="text" name="school_name" placeholder="School / University Name" class="input">
 
-<h4 class="text-2xl font-bold text-blue-200 mb-6">
-Junior High School
-</h4>
+<input type="text" name="major" placeholder="Major / Study Program" class="input">
 
-<div class="grid md:grid-cols-2 gap-6">
+<input type="text" name="study_start" placeholder="Start Year" class="input">
 
-<input type="text" name="junior_school_name" placeholder="School Name" class="input">
-
-<input type="text" name="junior_school_address" placeholder="School Address" class="input">
-
-<input type="text" name="junior_school_city" placeholder="City" class="input">
-
-<input type="text" name="junior_school_province" placeholder="Province" class="input">
-
-<input type="text" name="junior_school_start" placeholder="Start Year" class="input">
-
-<input type="text" name="junior_school_graduate" placeholder="Graduation Year" class="input">
+<input type="text" name="study_end" placeholder="Graduation Year" class="input">
 
 </div>
-
-</div>
-
-<!-- SMA -->
-<div class="glass p-8 rounded-3xl">
-
-<h4 class="text-2xl font-bold text-blue-200 mb-6">
-Senior High School
-</h4>
-
-<div class="grid md:grid-cols-2 gap-6">
-
-<input type="text" name="senior_school_name" placeholder="School Name" class="input">
-
-<input type="text" name="senior_school_address" placeholder="School Address" class="input">
-
-<input type="text" name="study_program" placeholder="Study Program" class="input">
-
-<input type="text" name="senior_school_city" placeholder="City" class="input">
-
-<input type="text" name="senior_school_start" placeholder="Start Year" class="input">
-
-<input type="text" name="senior_school_graduate" placeholder="Graduation Year" class="input">
-
-</div>
-
-</div>
-
-<!-- UNIVERSITY -->
-<div class="glass p-8 rounded-3xl">
-
-<h4 class="text-2xl font-bold text-blue-200 mb-6">
-University / College
-</h4>
-
-<div class="grid md:grid-cols-2 gap-6">
-
-<input type="text" name="university_name" placeholder="University Name" class="input">
-
-<input type="text" name="university_address" placeholder="University Address" class="input">
-
-<input type="text" name="university_major" placeholder="Major / Study Program" class="input">
-
-<input type="text" name="university_city" placeholder="City" class="input">
-
-<input type="text" name="university_start" placeholder="Start Year" class="input">
-
-<input type="text" name="university_graduate" placeholder="Graduation Year" class="input">
-
-</div>
-
-</div>
-
-</div>
-
-</div>
-
-<!-- LANGUAGE -->
-<div class="glass section-box">
-
-<h3 class="text-3xl font-bold text-blue-300 mb-8">
-Languages
-</h3>
-
-<textarea
-name="languages"
-placeholder="Languages You Speak"
-class="input h-40"
-></textarea>
 
 </div>
 
 <!-- TRAVEL -->
-<div class="glass section-box">
+<div class="glass section">
 
-<h3 class="text-3xl font-bold text-blue-300 mb-8">
+<h2 class="section-title">
 Travel History
-</h3>
+</h2>
 
 <textarea
 name="travel_history"
 placeholder="Countries visited in the last 5 years"
-class="input h-40"
+class="input"
 ></textarea>
 
 </div>
 
-<!-- SECURITY -->
-<div class="glass section-box">
+<!-- LANGUAGES -->
+<div class="glass section">
 
-<h3 class="text-3xl font-bold text-blue-300 mb-8">
-Security & Background
-</h3>
+<h2 class="section-title">
+Languages
+</h2>
 
-<div class="grid md:grid-cols-2 gap-6">
-
-<select name="visa_denied" class="input">
-<option>Ever denied U.S Visa?</option>
-<option>No</option>
-<option>Yes</option>
-</select>
-
-<select name="overstay_us" class="input">
-<option>Ever overstayed in U.S?</option>
-<option>No</option>
-<option>Yes</option>
-</select>
-
-<select name="arrested" class="input">
-<option>Ever arrested?</option>
-<option>No</option>
-<option>Yes</option>
-</select>
-
-<select name="relatives_us" class="input">
-<option>Have relatives in U.S?</option>
-<option>No</option>
-<option>Yes</option>
-</select>
-
-</div>
+<textarea
+name="languages"
+placeholder="Languages You Speak"
+class="input"
+></textarea>
 
 </div>
 
 <!-- SUBMIT -->
-<button
-type="submit"
-class="btn-main py-5 rounded-2xl text-xl font-black"
->
+<button type="submit" class="btn">
 Submit DS-160 Questionnaire
 </button>
 
@@ -623,14 +531,14 @@ Submit DS-160 Questionnaire
 </section>
 
 <!-- FOOTER -->
-<footer class="border-t border-white/10 py-10 text-center text-zinc-400">
+<footer class="footer">
 
-<h2 class="text-2xl font-black text-blue-300">
+<h2 class="text-2xl font-bold text-blue-300">
 VISA ELITE
 </h2>
 
 <p class="mt-4">
-© 2026 Premium USA Visa Agency. All rights reserved.
+© 2026 Premium DS-160 Visa Agency
 </p>
 
 </footer>
@@ -640,28 +548,54 @@ VISA ELITE
 
 const particles = document.getElementById('particles');
 
-for(let i = 0; i < 100; i++){
+for(let i = 0; i < 120; i++){
 
-  const particle = document.createElement('div');
+const particle = document.createElement('div');
 
-  particle.classList.add('particle');
+particle.classList.add('particle');
 
-  particle.style.left =
-    Math.random() * 100 + 'vw';
+particle.style.left =
+Math.random()*100 + 'vw';
 
-  particle.style.width =
-    particle.style.height =
-    (Math.random() * 4 + 2) + 'px';
+particle.style.width =
+particle.style.height =
+(Math.random()*4 + 2) + 'px';
 
-  particle.style.animationDuration =
-    (Math.random() * 10 + 8) + 's';
+particle.style.animationDuration =
+(Math.random()*10 + 8) + 's';
 
-  particle.style.opacity =
-    Math.random();
+particle.style.opacity =
+Math.random();
 
-  particles.appendChild(particle);
+particles.appendChild(particle);
 
 }
+
+</script>
+
+<!-- FORM SUBMIT -->
+<script>
+
+const form = document.getElementById('visaForm');
+
+form.addEventListener('submit', async function(e){
+
+e.preventDefault();
+
+const formData = new FormData(form);
+
+await fetch(form.action,{
+method:'POST',
+body:formData,
+headers:{
+'Accept':'application/json'
+}
+});
+
+window.location.href =
+'https://wa.me/628816906696?text=Hello%20Visa%20Elite,%20I%20have%20submitted%20my%20DS160%20questionnaire.';
+
+});
 
 </script>
 
