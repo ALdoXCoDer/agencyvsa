@@ -1,0 +1,619 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+<title>VISA ELITE</title>
+
+<script src="https://cdn.tailwindcss.com"></script>
+
+<style>
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+body{
+  font-family:Arial, sans-serif;
+  background:#020617;
+  color:white;
+  overflow-x:hidden;
+}
+
+/* BACKGROUND */
+.hero-bg{
+  position:fixed;
+  inset:0;
+
+  background-image:
+  linear-gradient(
+    to bottom right,
+    rgba(2,6,23,0.94),
+    rgba(0,0,0,0.90),
+    rgba(30,64,175,0.78)
+  ),
+  url('https://images.unsplash.com/photo-1617581629397-a72507c3de9e?q=80&w=2070');
+
+  background-size:cover;
+  background-position:center;
+  background-attachment:fixed;
+
+  z-index:-5;
+}
+
+/* PARTICLES */
+.particles{
+  position:fixed;
+  inset:0;
+  overflow:hidden;
+  z-index:-4;
+}
+
+.particle{
+  position:absolute;
+  background:white;
+  border-radius:50%;
+  opacity:0.2;
+  animation:floatParticle linear infinite;
+}
+
+@keyframes floatParticle{
+  from{
+    transform:translateY(100vh);
+  }
+  to{
+    transform:translateY(-100vh);
+  }
+}
+
+/* GLOW */
+.glow1{
+  position:fixed;
+  top:-200px;
+  left:-200px;
+
+  width:600px;
+  height:600px;
+
+  background:#2563eb;
+
+  border-radius:50%;
+
+  filter:blur(160px);
+
+  opacity:0.22;
+
+  z-index:-3;
+
+  animation:moveGlow1 10s infinite alternate ease-in-out;
+}
+
+.glow2{
+  position:fixed;
+  bottom:-200px;
+  right:-200px;
+
+  width:600px;
+  height:600px;
+
+  background:#60a5fa;
+
+  border-radius:50%;
+
+  filter:blur(170px);
+
+  opacity:0.18;
+
+  z-index:-3;
+
+  animation:moveGlow2 12s infinite alternate ease-in-out;
+}
+
+@keyframes moveGlow1{
+  from{
+    transform:translate(0,0);
+  }
+  to{
+    transform:translate(120px,80px);
+  }
+}
+
+@keyframes moveGlow2{
+  from{
+    transform:translate(0,0);
+  }
+  to{
+    transform:translate(-120px,-90px);
+  }
+}
+
+/* GLASS */
+.glass{
+  background:rgba(255,255,255,0.05);
+
+  backdrop-filter:blur(18px);
+
+  border:1px solid rgba(255,255,255,0.08);
+
+  box-shadow:0 0 40px rgba(59,130,246,0.15);
+}
+
+/* INPUT */
+.input{
+  width:100%;
+
+  padding:18px;
+
+  border-radius:18px;
+
+  background:rgba(255,255,255,0.04);
+
+  border:1px solid rgba(255,255,255,0.08);
+
+  outline:none;
+
+  color:white;
+
+  transition:0.3s;
+}
+
+.input:focus{
+  border:1px solid #60a5fa;
+  box-shadow:0 0 20px rgba(96,165,250,0.3);
+}
+
+.input::placeholder{
+  color:#cbd5e1;
+}
+
+/* BUTTON */
+.btn-main{
+  background:linear-gradient(
+    to right,
+    #2563eb,
+    #3b82f6
+  );
+
+  transition:0.4s;
+}
+
+.btn-main:hover{
+  transform:translateY(-4px);
+
+  box-shadow:0 0 30px rgba(59,130,246,0.55);
+}
+
+/* TEXT GLOW */
+.text-glow{
+  text-shadow:
+  0 0 15px rgba(96,165,250,0.8),
+  0 0 30px rgba(59,130,246,0.4);
+}
+
+/* SECTION */
+.section-box{
+  padding:35px;
+  border-radius:35px;
+  margin-bottom:40px;
+}
+
+/* LABEL */
+.label{
+  font-size:14px;
+  color:#93c5fd;
+  letter-spacing:5px;
+  text-transform:uppercase;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<!-- BACKGROUND -->
+<div class="hero-bg"></div>
+
+<!-- PARTICLES -->
+<div class="particles" id="particles"></div>
+
+<!-- GLOW -->
+<div class="glow1"></div>
+<div class="glow2"></div>
+
+<!-- NAVBAR -->
+<nav class="glass sticky top-0 z-50 px-8 py-5 flex justify-between items-center">
+
+  <div>
+
+    <h1 class="text-3xl font-black tracking-[6px] text-glow">
+      VISA ELITE
+    </h1>
+
+    <p class="text-blue-300 text-sm mt-1">
+      AI Powered DS-160 Agency
+    </p>
+
+  </div>
+
+  <button class="btn-main px-7 py-3 rounded-full font-bold">
+    Apply Now
+  </button>
+
+</nav>
+
+<!-- HERO -->
+<section class="text-center px-6 pt-28 pb-24">
+
+  <p class="label">
+    Premium USA Visa Assistance
+  </p>
+
+  <h1 class="text-6xl md:text-8xl font-black leading-tight mt-8 text-glow">
+
+    Elite USA
+    <span class="text-blue-400">
+      Visa
+    </span>
+
+    System
+
+  </h1>
+
+  <p class="mt-8 text-zinc-300 text-lg max-w-3xl mx-auto leading-relaxed">
+
+    AI-powered DS-160 automation platform with premium consultation,
+    intelligent questionnaire processing, and luxury visa assistance.
+
+  </p>
+
+</section>
+
+<!-- FORM -->
+<section class="px-6 pb-32">
+
+<div class="max-w-7xl mx-auto glass rounded-[45px] p-8 md:p-14">
+
+<!-- TITLE -->
+<div class="text-center mb-16">
+
+  <p class="label">
+    Smart AI Questionnaire
+  </p>
+
+  <h2 class="text-5xl md:text-6xl font-black mt-6 text-glow">
+    Complete DS-160 Form
+  </h2>
+
+  <p class="mt-6 text-zinc-300 max-w-3xl mx-auto leading-relaxed">
+    Fill in all information below and our AI system will prepare your DS-160 professionally.
+  </p>
+
+</div>
+
+<form class="grid gap-10">
+
+<!-- PERSONAL -->
+<div class="glass section-box">
+
+<h3 class="text-3xl font-bold text-blue-300 mb-8">
+Personal Information
+</h3>
+
+<div class="grid md:grid-cols-2 gap-6">
+
+<input type="text" placeholder="Full Name" class="input">
+<input type="text" placeholder="Surname" class="input">
+
+<input type="text" placeholder="National ID / NIK" class="input">
+<input type="text" placeholder="Passport Number" class="input">
+
+<input type="text" placeholder="Nationality" class="input">
+<input type="text" placeholder="Place of Birth" class="input">
+
+<input type="date" class="input">
+<input type="text" placeholder="Gender" class="input">
+
+<input type="text" placeholder="Marital Status" class="input">
+<input type="text" placeholder="Phone Number" class="input">
+
+<input type="email" placeholder="Email Address" class="input md:col-span-2">
+
+<textarea placeholder="Full Home Address" class="input md:col-span-2 h-32"></textarea>
+
+</div>
+
+</div>
+
+<!-- SOCIAL -->
+<div class="glass section-box">
+
+<h3 class="text-3xl font-bold text-blue-300 mb-8">
+Social Media
+</h3>
+
+<div class="grid md:grid-cols-2 gap-6">
+
+<input type="text" placeholder="Facebook Username" class="input">
+<input type="text" placeholder="Instagram Username" class="input">
+
+<input type="text" placeholder="TikTok Username" class="input">
+<input type="text" placeholder="Twitter / X Username" class="input">
+
+</div>
+
+</div>
+
+<!-- FAMILY -->
+<div class="glass section-box">
+
+<h3 class="text-3xl font-bold text-blue-300 mb-8">
+Family Information
+</h3>
+
+<div class="grid md:grid-cols-2 gap-6">
+
+<input type="text" placeholder="Father Full Name" class="input">
+<input type="date" class="input">
+
+<input type="text" placeholder="Mother Full Name" class="input">
+<input type="date" class="input">
+
+<input type="text" placeholder="Spouse Full Name" class="input">
+<input type="text" placeholder="Spouse Place of Birth" class="input">
+
+<input type="date" class="input">
+<input type="date" class="input">
+
+</div>
+
+</div>
+
+<!-- TRIP -->
+<div class="glass section-box">
+
+<h3 class="text-3xl font-bold text-blue-300 mb-8">
+U.S. Trip Information
+</h3>
+
+<div class="grid md:grid-cols-2 gap-6">
+
+<input type="text" placeholder="Purpose of Trip" class="input">
+<input type="text" placeholder="Arrival Date" class="input">
+
+<input type="text" placeholder="Length of Stay" class="input">
+<input type="text" placeholder="U.S Contact Person" class="input">
+
+<textarea placeholder="Address in the U.S." class="input md:col-span-2 h-32"></textarea>
+
+</div>
+
+</div>
+
+<!-- EMPLOYMENT -->
+<div class="glass section-box">
+
+<h3 class="text-3xl font-bold text-blue-300 mb-8">
+Employment Information
+</h3>
+
+<div class="grid md:grid-cols-2 gap-6">
+
+<input type="text" placeholder="Primary Occupation" class="input">
+<input type="text" placeholder="Company Name" class="input">
+
+<input type="text" placeholder="Company Address" class="input">
+<input type="text" placeholder="Office Phone Number" class="input">
+
+<input type="text" placeholder="Monthly Salary" class="input">
+<input type="text" placeholder="Employment Start Year" class="input">
+
+<textarea placeholder="Briefly Describe Your Duties" class="input md:col-span-2 h-40"></textarea>
+
+</div>
+
+</div>
+
+<!-- EDUCATION -->
+<div class="glass section-box">
+
+<h3 class="text-3xl font-bold text-blue-300 mb-8">
+Education Information
+</h3>
+
+<div class="grid gap-8">
+
+<div class="glass p-8 rounded-3xl">
+
+<h4 class="text-2xl font-bold text-blue-200 mb-6">
+Junior High School
+</h4>
+
+<div class="grid md:grid-cols-2 gap-6">
+
+<input type="text" placeholder="School Name" class="input">
+<input type="text" placeholder="School Address" class="input">
+
+<input type="text" placeholder="City" class="input">
+<input type="text" placeholder="Province" class="input">
+
+<input type="text" placeholder="Start Year" class="input">
+<input type="text" placeholder="Graduation Year" class="input">
+
+</div>
+
+</div>
+
+<div class="glass p-8 rounded-3xl">
+
+<h4 class="text-2xl font-bold text-blue-200 mb-6">
+Senior High School
+</h4>
+
+<div class="grid md:grid-cols-2 gap-6">
+
+<input type="text" placeholder="School Name" class="input">
+<input type="text" placeholder="School Address" class="input">
+
+<input type="text" placeholder="Study Program" class="input">
+<input type="text" placeholder="City" class="input">
+
+<input type="text" placeholder="Start Year" class="input">
+<input type="text" placeholder="Graduation Year" class="input">
+
+</div>
+
+</div>
+
+<div class="glass p-8 rounded-3xl">
+
+<h4 class="text-2xl font-bold text-blue-200 mb-6">
+University / College
+</h4>
+
+<div class="grid md:grid-cols-2 gap-6">
+
+<input type="text" placeholder="University Name" class="input">
+<input type="text" placeholder="University Address" class="input">
+
+<input type="text" placeholder="Major / Study Program" class="input">
+<input type="text" placeholder="City" class="input">
+
+<input type="text" placeholder="Start Year" class="input">
+<input type="text" placeholder="Graduation Year" class="input">
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+<!-- LANGUAGES -->
+<div class="glass section-box">
+
+<h3 class="text-3xl font-bold text-blue-300 mb-8">
+Languages
+</h3>
+
+<textarea
+placeholder="Languages You Speak"
+class="input h-40"
+></textarea>
+
+</div>
+
+<!-- TRAVEL -->
+<div class="glass section-box">
+
+<h3 class="text-3xl font-bold text-blue-300 mb-8">
+Travel History
+</h3>
+
+<textarea
+placeholder="Countries visited in the last 5 years"
+class="input h-40"
+></textarea>
+
+</div>
+
+<!-- SECURITY -->
+<div class="glass section-box">
+
+<h3 class="text-3xl font-bold text-blue-300 mb-8">
+Security & Background
+</h3>
+
+<div class="grid md:grid-cols-2 gap-6">
+
+<select class="input">
+<option>Ever denied U.S Visa?</option>
+<option>No</option>
+<option>Yes</option>
+</select>
+
+<select class="input">
+<option>Ever overstayed in U.S?</option>
+<option>No</option>
+<option>Yes</option>
+</select>
+
+<select class="input">
+<option>Ever arrested?</option>
+<option>No</option>
+<option>Yes</option>
+</select>
+
+<select class="input">
+<option>Have relatives in U.S?</option>
+<option>No</option>
+<option>Yes</option>
+</select>
+
+</div>
+
+</div>
+
+<!-- SUBMIT -->
+<button
+class="btn-main py-5 rounded-2xl text-xl font-black"
+>
+Submit DS-160 Questionnaire
+</button>
+
+</form>
+
+</div>
+
+</section>
+
+<!-- FOOTER -->
+<footer class="border-t border-white/10 py-10 text-center text-zinc-400">
+
+<h2 class="text-2xl font-black text-blue-300">
+VISA ELITE
+</h2>
+
+<p class="mt-4">
+© 2026 Premium USA Visa Agency. All rights reserved.
+</p>
+
+</footer>
+
+<!-- PARTICLES -->
+<script>
+
+const particles = document.getElementById('particles');
+
+for(let i = 0; i < 100; i++){
+
+  const particle = document.createElement('div');
+
+  particle.classList.add('particle');
+
+  particle.style.left =
+    Math.random() * 100 + 'vw';
+
+  particle.style.width =
+    particle.style.height =
+    (Math.random() * 4 + 2) + 'px';
+
+  particle.style.animationDuration =
+    (Math.random() * 10 + 8) + 's';
+
+  particle.style.opacity =
+    Math.random();
+
+  particles.appendChild(particle);
+
+}
+
+</script>
+
+</body>
+</html>
