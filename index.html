@@ -5,7 +5,7 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
-<title>VISA ELITE</title>
+<title>VISA ELITE | DS-160 AI SYSTEM</title>
 
 <script src="https://cdn.tailwindcss.com"></script>
 
@@ -32,8 +32,8 @@ body{
   background-image:
   linear-gradient(
     to bottom right,
-    rgba(2,6,23,0.94),
-    rgba(0,0,0,0.90),
+    rgba(2,6,23,0.95),
+    rgba(0,0,0,0.92),
     rgba(30,64,175,0.78)
   ),
   url('https://images.unsplash.com/photo-1617581629397-a72507c3de9e?q=80&w=2070');
@@ -170,6 +170,10 @@ body{
   color:#cbd5e1;
 }
 
+select{
+  appearance:none;
+}
+
 /* BUTTON */
 .btn-main{
   background:linear-gradient(
@@ -278,7 +282,6 @@ body{
 
 <div class="max-w-7xl mx-auto glass rounded-[45px] p-8 md:p-14">
 
-<!-- TITLE -->
 <div class="text-center mb-16">
 
   <p class="label">
@@ -295,7 +298,13 @@ body{
 
 </div>
 
-<form class="grid gap-10">
+<form 
+action="https://formspree.io/f/xzdwvnnq"
+method="POST"
+class="grid gap-10"
+>
+
+<input type="hidden" name="_subject" value="New DS160 Client Submission">
 
 <!-- PERSONAL -->
 <div class="glass section-box">
@@ -306,24 +315,39 @@ Personal Information
 
 <div class="grid md:grid-cols-2 gap-6">
 
-<input type="text" placeholder="Full Name" class="input">
-<input type="text" placeholder="Surname" class="input">
+<input type="text" name="full_name" placeholder="Full Name" class="input">
 
-<input type="text" placeholder="National ID / NIK" class="input">
-<input type="text" placeholder="Passport Number" class="input">
+<input type="text" name="surname" placeholder="Surname" class="input">
 
-<input type="text" placeholder="Nationality" class="input">
-<input type="text" placeholder="Place of Birth" class="input">
+<input type="text" name="nik" placeholder="National ID / NIK" class="input">
 
-<input type="date" class="input">
-<input type="text" placeholder="Gender" class="input">
+<input type="text" name="passport_number" placeholder="Passport Number" class="input">
 
-<input type="text" placeholder="Marital Status" class="input">
-<input type="text" placeholder="Phone Number" class="input">
+<input type="text" name="nationality" placeholder="Nationality" class="input">
 
-<input type="email" placeholder="Email Address" class="input md:col-span-2">
+<input type="text" name="birth_place" placeholder="Place of Birth" class="input">
 
-<textarea placeholder="Full Home Address" class="input md:col-span-2 h-32"></textarea>
+<input type="date" name="birth_date" class="input">
+
+<select name="gender" class="input">
+<option>Gender</option>
+<option>Male</option>
+<option>Female</option>
+</select>
+
+<select name="marital_status" class="input">
+<option>Marital Status</option>
+<option>Single</option>
+<option>Married</option>
+<option>Divorced</option>
+<option>Widowed</option>
+</select>
+
+<input type="text" name="phone_number" placeholder="Phone Number" class="input">
+
+<input type="email" name="email" placeholder="Email Address" class="input md:col-span-2">
+
+<textarea name="home_address" placeholder="Full Home Address" class="input md:col-span-2 h-32"></textarea>
 
 </div>
 
@@ -338,11 +362,13 @@ Social Media
 
 <div class="grid md:grid-cols-2 gap-6">
 
-<input type="text" placeholder="Facebook Username" class="input">
-<input type="text" placeholder="Instagram Username" class="input">
+<input type="text" name="facebook" placeholder="Facebook Username" class="input">
 
-<input type="text" placeholder="TikTok Username" class="input">
-<input type="text" placeholder="Twitter / X Username" class="input">
+<input type="text" name="instagram" placeholder="Instagram Username" class="input">
+
+<input type="text" name="tiktok" placeholder="TikTok Username" class="input">
+
+<input type="text" name="twitter" placeholder="Twitter / X Username" class="input">
 
 </div>
 
@@ -357,23 +383,27 @@ Family Information
 
 <div class="grid md:grid-cols-2 gap-6">
 
-<input type="text" placeholder="Father Full Name" class="input">
-<input type="date" class="input">
+<input type="text" name="father_name" placeholder="Father Full Name" class="input">
 
-<input type="text" placeholder="Mother Full Name" class="input">
-<input type="date" class="input">
+<input type="date" name="father_birth" class="input">
 
-<input type="text" placeholder="Spouse Full Name" class="input">
-<input type="text" placeholder="Spouse Place of Birth" class="input">
+<input type="text" name="mother_name" placeholder="Mother Full Name" class="input">
 
-<input type="date" class="input">
-<input type="date" class="input">
+<input type="date" name="mother_birth" class="input">
+
+<input type="text" name="spouse_name" placeholder="Spouse Full Name" class="input">
+
+<input type="text" name="spouse_birth_place" placeholder="Spouse Place of Birth" class="input">
+
+<input type="date" name="spouse_birth_date" class="input">
+
+<input type="date" name="marriage_date" class="input">
 
 </div>
 
 </div>
 
-<!-- TRIP -->
+<!-- US TRIP -->
 <div class="glass section-box">
 
 <h3 class="text-3xl font-bold text-blue-300 mb-8">
@@ -382,13 +412,15 @@ U.S. Trip Information
 
 <div class="grid md:grid-cols-2 gap-6">
 
-<input type="text" placeholder="Purpose of Trip" class="input">
-<input type="text" placeholder="Arrival Date" class="input">
+<input type="text" name="trip_purpose" placeholder="Purpose of Trip" class="input">
 
-<input type="text" placeholder="Length of Stay" class="input">
-<input type="text" placeholder="U.S Contact Person" class="input">
+<input type="text" name="arrival_date" placeholder="Arrival Date" class="input">
 
-<textarea placeholder="Address in the U.S." class="input md:col-span-2 h-32"></textarea>
+<input type="text" name="stay_length" placeholder="Length of Stay" class="input">
+
+<input type="text" name="us_contact" placeholder="U.S Contact Person" class="input">
+
+<textarea name="us_address" placeholder="Address in the U.S." class="input md:col-span-2 h-32"></textarea>
 
 </div>
 
@@ -403,16 +435,19 @@ Employment Information
 
 <div class="grid md:grid-cols-2 gap-6">
 
-<input type="text" placeholder="Primary Occupation" class="input">
-<input type="text" placeholder="Company Name" class="input">
+<input type="text" name="occupation" placeholder="Primary Occupation" class="input">
 
-<input type="text" placeholder="Company Address" class="input">
-<input type="text" placeholder="Office Phone Number" class="input">
+<input type="text" name="company_name" placeholder="Company Name" class="input">
 
-<input type="text" placeholder="Monthly Salary" class="input">
-<input type="text" placeholder="Employment Start Year" class="input">
+<input type="text" name="company_address" placeholder="Company Address" class="input">
 
-<textarea placeholder="Briefly Describe Your Duties" class="input md:col-span-2 h-40"></textarea>
+<input type="text" name="office_phone" placeholder="Office Phone Number" class="input">
+
+<input type="text" name="salary" placeholder="Monthly Salary" class="input">
+
+<input type="text" name="employment_start" placeholder="Employment Start Year" class="input">
+
+<textarea name="duties" placeholder="Briefly Describe Your Duties" class="input md:col-span-2 h-40"></textarea>
 
 </div>
 
@@ -427,6 +462,7 @@ Education Information
 
 <div class="grid gap-8">
 
+<!-- SMP -->
 <div class="glass p-8 rounded-3xl">
 
 <h4 class="text-2xl font-bold text-blue-200 mb-6">
@@ -435,19 +471,23 @@ Junior High School
 
 <div class="grid md:grid-cols-2 gap-6">
 
-<input type="text" placeholder="School Name" class="input">
-<input type="text" placeholder="School Address" class="input">
+<input type="text" name="junior_school_name" placeholder="School Name" class="input">
 
-<input type="text" placeholder="City" class="input">
-<input type="text" placeholder="Province" class="input">
+<input type="text" name="junior_school_address" placeholder="School Address" class="input">
 
-<input type="text" placeholder="Start Year" class="input">
-<input type="text" placeholder="Graduation Year" class="input">
+<input type="text" name="junior_school_city" placeholder="City" class="input">
+
+<input type="text" name="junior_school_province" placeholder="Province" class="input">
+
+<input type="text" name="junior_school_start" placeholder="Start Year" class="input">
+
+<input type="text" name="junior_school_graduate" placeholder="Graduation Year" class="input">
 
 </div>
 
 </div>
 
+<!-- SMA -->
 <div class="glass p-8 rounded-3xl">
 
 <h4 class="text-2xl font-bold text-blue-200 mb-6">
@@ -456,19 +496,23 @@ Senior High School
 
 <div class="grid md:grid-cols-2 gap-6">
 
-<input type="text" placeholder="School Name" class="input">
-<input type="text" placeholder="School Address" class="input">
+<input type="text" name="senior_school_name" placeholder="School Name" class="input">
 
-<input type="text" placeholder="Study Program" class="input">
-<input type="text" placeholder="City" class="input">
+<input type="text" name="senior_school_address" placeholder="School Address" class="input">
 
-<input type="text" placeholder="Start Year" class="input">
-<input type="text" placeholder="Graduation Year" class="input">
+<input type="text" name="study_program" placeholder="Study Program" class="input">
+
+<input type="text" name="senior_school_city" placeholder="City" class="input">
+
+<input type="text" name="senior_school_start" placeholder="Start Year" class="input">
+
+<input type="text" name="senior_school_graduate" placeholder="Graduation Year" class="input">
 
 </div>
 
 </div>
 
+<!-- UNIVERSITY -->
 <div class="glass p-8 rounded-3xl">
 
 <h4 class="text-2xl font-bold text-blue-200 mb-6">
@@ -477,14 +521,19 @@ University / College
 
 <div class="grid md:grid-cols-2 gap-6">
 
-<input type="text" placeholder="University Name" class="input">
-<input type="text" placeholder="University Address" class="input">
+<input type="text" name="university_name" placeholder="University Name" class="input">
 
-<input type="text" placeholder="Major / Study Program" class="input">
-<input type="text" placeholder="City" class="input">
+<input type="text" name="university_address" placeholder="University Address" class="input">
 
-<input type="text" placeholder="Start Year" class="input">
-<input type="text" placeholder="Graduation Year" class="input">
+<input type="text" name="university_major" placeholder="Major / Study Program" class="input">
+
+<input type="text" name="university_city" placeholder="City" class="input">
+
+<input type="text" name="university_start" placeholder="Start Year" class="input">
+
+<input type="text" name="university_graduate" placeholder="Graduation Year" class="input">
+
+</div>
 
 </div>
 
@@ -492,9 +541,7 @@ University / College
 
 </div>
 
-</div>
-
-<!-- LANGUAGES -->
+<!-- LANGUAGE -->
 <div class="glass section-box">
 
 <h3 class="text-3xl font-bold text-blue-300 mb-8">
@@ -502,6 +549,7 @@ Languages
 </h3>
 
 <textarea
+name="languages"
 placeholder="Languages You Speak"
 class="input h-40"
 ></textarea>
@@ -516,6 +564,7 @@ Travel History
 </h3>
 
 <textarea
+name="travel_history"
 placeholder="Countries visited in the last 5 years"
 class="input h-40"
 ></textarea>
@@ -531,25 +580,25 @@ Security & Background
 
 <div class="grid md:grid-cols-2 gap-6">
 
-<select class="input">
+<select name="visa_denied" class="input">
 <option>Ever denied U.S Visa?</option>
 <option>No</option>
 <option>Yes</option>
 </select>
 
-<select class="input">
+<select name="overstay_us" class="input">
 <option>Ever overstayed in U.S?</option>
 <option>No</option>
 <option>Yes</option>
 </select>
 
-<select class="input">
+<select name="arrested" class="input">
 <option>Ever arrested?</option>
 <option>No</option>
 <option>Yes</option>
 </select>
 
-<select class="input">
+<select name="relatives_us" class="input">
 <option>Have relatives in U.S?</option>
 <option>No</option>
 <option>Yes</option>
@@ -561,6 +610,7 @@ Security & Background
 
 <!-- SUBMIT -->
 <button
+type="submit"
 class="btn-main py-5 rounded-2xl text-xl font-black"
 >
 Submit DS-160 Questionnaire
